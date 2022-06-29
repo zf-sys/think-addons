@@ -1,5 +1,5 @@
 {
-    "name": "zfcms/think-addons",
+    "name": "zf-sys/think-addons",
     "description": "The ThinkPHP5.1 Addons Package",
     "license": "Apache-2.0",
     "authors": [
