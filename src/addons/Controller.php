@@ -51,7 +51,7 @@ class Controller extends \think\Controller
         $this->tb_prefix = config()['database']['prefix'];
         $this->zfTool = new \app\common\controller\Base(false);
 
-        if(strtolower($this->controller)=='admin'){
+        if(in_array(strtolower($this->controller),['admin','plugin'])){
           if(!session('admin')){
             session('zf_login_tap_url',get_url());
             $this->redirect('/admin/login/index');die; 
