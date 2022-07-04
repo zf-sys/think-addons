@@ -50,17 +50,16 @@ class Controller extends \think\Controller
         $this->assign('plug_static',$this->plug_static);
         $this->tb_prefix = config()['database']['prefix'];
         $this->zfTool = new \app\common\controller\Base(false);
-
         if(in_array(strtolower($this->controller),['admin','plugin'])){
           if(!session('admin')){
             session('zf_login_tap_url',get_url());
-            $this->redirect('/admin/login/index');die; 
+            $this->redirect(url('admin/login/index'));die; 
           }
-
         }
+        doZfActionInit();
     }
     
     public function _empty(){
-      $this->error('没有此方法','');
+      $this->error('没有此方法');
     }
 }
