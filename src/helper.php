@@ -75,8 +75,8 @@ Route::group('addons', function () {
     }
     $request->plugin_name = $rules[0];
     $module = $request->module();
-    $_file2 = './addons/'.$module.'/config/function.php';
-    if(is_dir('./addons/'.$module) && file_exists($_file2) ){
+    $_file2 = './'.$module.'/'.$request->plugin_name.'/config/function.php';
+    if(is_dir('./'.$module.'/'.$request->plugin_name) && file_exists($_file2) ){
         include $_file2;
     }
     return $next($request);
