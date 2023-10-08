@@ -6,13 +6,14 @@ use think\facade\Request;
 use think\facade\Config;
 use think\Loader;
 use think\Container;
+use app\common\controller\Base as Zfb;
 
 /**
  * 插件基类控制器
  * Class Controller
  * @package think\addons
  */
-class Controller extends \think\Controller
+class Controller extends Zfb
 {
     protected function __construct(){
         parent::__construct();
@@ -49,7 +50,6 @@ class Controller extends \think\Controller
         $this->plug_static = $this->site_path."addons/".$this->zf_tpl_suffix."/view/style/";
         $this->assign('plug_static',$this->plug_static);
         $this->tb_prefix = config()['database']['prefix'];
-        $this->zfTool = new \app\common\controller\Base(false);
         if(in_array(strtolower($this->controller),['admin','plugin'])){
           if(!session('admin')){
             session('zf_login_tap_url',get_url());
